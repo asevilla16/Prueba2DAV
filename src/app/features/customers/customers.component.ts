@@ -54,7 +54,9 @@ export class CustomersComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-        this.customerService.deleteCustomer(id)
+      console.log(result);
+        if(result){
+          this.customerService.deleteCustomer(id)
           .subscribe(
             (res: any) => {
               this.matSnackBar.open('Customer has been deleted successfully', 'OK', {
@@ -63,6 +65,7 @@ export class CustomersComponent implements OnInit {
               });
             }
           )
+        }
     });
   }
 

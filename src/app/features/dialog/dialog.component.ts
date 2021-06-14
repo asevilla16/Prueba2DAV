@@ -8,13 +8,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit {
 
+  data: boolean = true;
   constructor(
     public dialogRef: MatDialogRef<DialogComponent>,
   ) { }
 
   ngOnInit(): void {
   }
-  
+
   onNoClick(): void {
     this.dialogRef.close();
   }
