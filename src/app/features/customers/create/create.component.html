@@ -1,0 +1,49 @@
+<div class="container" fxLayout="column" fxFlex="50">
+    <div class="back" fxLayoutAlign="start start">
+        <button type="button" mat-icon-button color="secondary" routerLink="/customer">
+            <mat-icon>arrow_back</mat-icon>
+        </button>
+    </div>
+    <mat-card>
+        <mat-card-header fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-card-title>
+                {{title}}
+            </mat-card-title>
+
+            <div fxLayoutAlign="end end">
+                <button type="button" mat-raised-button (click)="onSubmit()">
+                    Save
+                </button>
+            </div>
+        </mat-card-header>
+
+        <form [formGroup]="form">
+            <div fxLayout="column">
+                <mat-form-field appearance="outline">
+                    <mat-label>Codigo</mat-label>
+                    <input formControlName="code" matInput placeholder="Codigo">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input formControlName="name" matInput placeholder="Nombre">
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input formControlName="birthDate" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline">
+                    <mat-label>Estado Civil</mat-label>
+                    <input formControlName="civilStatus" matInput placeholder="Estado civil">
+                </mat-form-field>
+    
+                <mat-slide-toggle formControlName="active">Activo</mat-slide-toggle>
+    
+            </div>
+        </form>
+    </mat-card>
+</div>
